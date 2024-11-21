@@ -23,15 +23,15 @@ public class LEDNode : MonoBehaviour
     // Emitted light intensity parameters.
     private float intensity = 0;
     private float minIntensity = 0;
-    private float maxIntensity = 1.0f;
+    private float maxIntensity = 20.0f;
     private float onTime = 0;
     private float maxOnTime = 1.0f;
-    private float onTimerSpeed = 2.0f;
+    private float onTimerSpeed = 5.0f;
     private float offTime = 0;
     private float maxOffTime = 20.0f;
     private float offTimerSpeed = 20.0f;
     // Emitted light increase/decrease controls.
-    private enum LightState { INCR, DECR, IDLE}
+    private enum LightState { INCR, DECR, IDLE }
     private LightState lightState = LightState.IDLE;
 
     void Start()
@@ -97,7 +97,7 @@ public class LEDNode : MonoBehaviour
     private void IntensityDecrease()
     {
         intensity = minIntensity;
-        
+
         // If there's a point light component enabled, disable the point light.
         if (isPointLightEn)
             pointLight.enabled = false;
