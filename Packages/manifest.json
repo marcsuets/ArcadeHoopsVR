@@ -2,6 +2,9 @@
   "dependencies": {
     "com.unity.collab-proxy": "2.5.1",
     "com.unity.feature.development": "1.0.1",
+    "com.unity.ide.vscode": "1.2.5",
+    "com.unity.postprocessing": "3.2.2",
+    "com.unity.shadergraph": "14.0.8",
     "com.unity.textmeshpro": "3.0.9",
     "com.unity.timeline": "1.7.5",
     "com.unity.toolchain.macos-arm64-linux-x86_64": "2.0.3",
