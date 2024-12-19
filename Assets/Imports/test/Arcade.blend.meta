@@ -3,7 +3,62 @@ guid: 8ce4c3043e02e2a48aeb9f0cdad6baef
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default
+    second: {fileID: 2100000, guid: 83ff5d05bc165fc41a0e0488162ef447, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 7c3c1866d1ca1c947b0c3946b1d3eac1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 950e45832fb96bc4fa6410da4b323de4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: def
+    second: {fileID: 2100000, guid: d69d99136c9da984dbe54fce117e96e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floorRamp
+    second: {fileID: 2100000, guid: 0c0c8fdd6b6755a4385df860bb998381, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frontLow
+    second: {fileID: 2100000, guid: 6229baa98f3791c4faf5143497ace6d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frontTop
+    second: {fileID: 2100000, guid: b7a6bef8c48244c49a07b4a2d0047092, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: left
+    second: {fileID: 2100000, guid: 3ea604acde7603f4c93c3db6e9a5c927, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mainWall
+    second: {fileID: 2100000, guid: b3471ef7b48b7d0448ffa73e2134531c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: right
+    second: {fileID: 2100000, guid: 71fca6ee7405ad94b985b656b8814959, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rope
+    second: {fileID: 2100000, guid: f285c8bc46fa6744b96dd8fa7a0eea3f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

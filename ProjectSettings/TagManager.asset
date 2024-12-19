@@ -8,6 +8,7 @@ TagManager:
   - Green
   - Blue
   - Fire
+  - Net
   layers:
   - Default
   - TransparentFX
