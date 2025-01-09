@@ -89,7 +89,4 @@ public class GameManager : MonoBehaviour
     {
         audioManager.PlayTimerFinished();
     }
-
-
-
 }
