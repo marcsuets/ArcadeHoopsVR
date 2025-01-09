@@ -29,8 +29,6 @@ public class AssignColliderToBall : MonoBehaviour
     {
         if (net == null || ballCollider == null) return;
 
-        Debug.Log("OnHandGrab triggered");
-
         // Get the Cloth component
         Cloth clothComponent = net.GetComponent<Cloth>();
         if (clothComponent == null)
