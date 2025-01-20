@@ -7,11 +7,17 @@ public class GameManager : MonoBehaviour
     
     public static GameManager Instance { get; private set; }
     
+    // Game on settings
+    private bool gameOn = false;
+    
+    // Score settings
     private int score = 0;
     public double multiplier = 1;
     public int pointsPerBasket = 100;
+    private int highScore = 0;
     
-    public float timer = 10;
+    // Timer settings
+    private float timer = 30;
     private float timeLeft;
     private bool timerIsRunning = false;
 
@@ -33,11 +39,15 @@ public class GameManager : MonoBehaviour
     {
         audioManager = AudioManager.Instance;
         timeLeft = timer;
-        timerIsRunning = true;
+        timerIsRunning = false;
     }
 
     private void Update()   
     {
+        if (gameOn)
+        {
+            timerIsRunning = true;
+        }
         
         if (timerIsRunning)
         {
@@ -49,7 +59,10 @@ public class GameManager : MonoBehaviour
             {
                 timeLeft = 0;
                 timerIsRunning = false;
-                TimerEnded();
+                gameOn = false;
+                audioManager.PlayTimerFinished();
+                highScore = 3030;
+                
             }
         }
     }
@@ -69,7 +82,12 @@ public class GameManager : MonoBehaviour
         return score;
     }
 
-    public double getMultiplier()
+    public int getHighScore()
+    {
+        return highScore;
+    }
+
+    /*public double getMultiplier()
     {
         return multiplier;
     }
@@ -82,10 +100,42 @@ public class GameManager : MonoBehaviour
     public void resetMultiplier()
     {
         multiplier = 1;
+    }*/
+
+    public void setTimer(float time)
+    {
+        this.timer = time;
+    }
+
+    public float getTimeLeft()
+    {
+        return timeLeft;
+    }
+
+    public void setTimerIsRunning(bool isTimerRunning)
+    {
+        this.timerIsRunning = isTimerRunning;
+    }
+
+    public void resetTimer()
+    {
+        timerIsRunning = false;
+        timeLeft = timer;
+    }
+
+    public void setGameOn(bool isGameOn)
+    {
+        Debug.Log("Game On <<<<<<<<<<<<<<<<<<<<" + isGameOn);
+        if (isGameOn)
+        {
+            resetScore();
+        }
+        this.gameOn = isGameOn;
+    }
+
+    public bool getGameOn()
+    {
+        return gameOn;
     }
     
-    void TimerEnded()
-    {
-        audioManager.PlayTimerFinished();
-    }
 }

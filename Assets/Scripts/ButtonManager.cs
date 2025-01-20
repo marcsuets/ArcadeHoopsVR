@@ -7,33 +7,71 @@ public class ButtonManager : MonoBehaviour
 {
     
     public TextMeshProUGUI screenText;
+    public TextMeshProUGUI blueButtonText;
+    public TextMeshProUGUI redButtonText;
     
     private AudioManager audioManager;
     private GameManager gameManager;
     private float time;
     int cont = 0;
     
-    // Start is called before the first frame update
     void Start()
     {
         audioManager = AudioManager.Instance;
         gameManager = GameManager.Instance;
-        time = 120;
-        ChangeTimeButton();
+        time = 60;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameManager.getGameOn())
+        {
+            screenText.text = "GO!";
+            blueButtonText.text = "RESTART";
+            redButtonText.text = "  STOP";
+        }
+        else
+        {
+            screenText.text = time + "\nSECONDS";
+            blueButtonText.text = "CHANGE TIME";
+            redButtonText.text = "START GAME";
+        }
     }
 
-    public void ChangeTimeButton()
+    public void BlueButtonClicked()
     {
         audioManager.PlayBasket();
-        ManageTimeLevel();
-        
-        screenText.text = time + "\nSECONDS";
+        if (gameManager.getGameOn())
+        {
+            Debug.Log("Restart game");
+            // TODO: Restart game (script)
+        }
+        else
+        {
+            Debug.Log("Temps canviat");
+            ManageTimeLevel();
+            screenText.text = time + "\nSECONDS";
+        }
+    }
+
+    public void RedButtonClicked()
+    {
+        audioManager.PlayBasket();
+        if (gameManager.getGameOn())
+        {
+            Debug.Log("ve d'aqui");
+            // Stop game
+            Debug.Log("Joc parat");
+            gameManager.resetTimer();
+            gameManager.setGameOn(false);
+        }
+        else
+        {
+            // Start Game
+            Debug.Log("Joc iniciat");
+            gameManager.setGameOn(true);
+        }
     }
 
     private void ManageTimeLevel()
@@ -42,6 +80,7 @@ public class ButtonManager : MonoBehaviour
         {
             case 0:
                 time = 30;
+                gameManager.setTimer(time);
                 cont++;
                 break;
             case 1:
@@ -60,7 +99,6 @@ public class ButtonManager : MonoBehaviour
                 time = 30;
                 break;
         }
+        gameManager.setTimer(time);
     }
 }
-
-    

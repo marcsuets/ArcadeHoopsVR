@@ -4,6 +4,7 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip basket;
     public AudioClip timerFinished;
+    public AudioClip newHighscore;
     
     public static AudioManager Instance { get; private set; }
 
@@ -29,5 +30,10 @@ public class AudioManager : MonoBehaviour
     public void PlayTimerFinished()
     {
         gameObject.GetComponent<AudioSource>().PlayOneShot(timerFinished);
+    }
+
+    public void PlayNewHighscore()
+    {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(newHighscore);
     }
 }
