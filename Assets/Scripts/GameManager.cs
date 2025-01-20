@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()   
     {
-        Debug.Log("Score: " + score);
         
         if (timerIsRunning)
         {
