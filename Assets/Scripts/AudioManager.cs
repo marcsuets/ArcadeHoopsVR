@@ -21,19 +21,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
     public void PlayBasket()
     { 
+        Debug.Log("Playing basket");
         gameObject.GetComponent<AudioSource>().PlayOneShot(basket);
     }
 
     public void PlayTimerFinished()
     {
+        Debug.Log("PlayTimerFinished called");
         gameObject.GetComponent<AudioSource>().PlayOneShot(timerFinished);
     }
 
     public void PlayNewHighscore()
     {
+        Debug.Log("PlayNewHighscore called");
         gameObject.GetComponent<AudioSource>().PlayOneShot(newHighscore);
     }
 }

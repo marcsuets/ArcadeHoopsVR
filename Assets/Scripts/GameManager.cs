@@ -61,7 +61,8 @@ public class GameManager : MonoBehaviour
                 timerIsRunning = false;
                 gameOn = false;
                 audioManager.PlayTimerFinished();
-                highScore = 3030;
+
+                RecalculateHighScore();
                 
             }
         }
@@ -104,17 +105,18 @@ public class GameManager : MonoBehaviour
 
     public void setTimer(float time)
     {
-        this.timer = time;
+        timer = time;
+        timeLeft = time;
+    }
+
+    public float GetTimer()
+    {
+        return timer;
     }
 
     public float getTimeLeft()
     {
         return timeLeft;
-    }
-
-    public void setTimerIsRunning(bool isTimerRunning)
-    {
-        this.timerIsRunning = isTimerRunning;
     }
 
     public void resetTimer()
@@ -125,7 +127,6 @@ public class GameManager : MonoBehaviour
 
     public void setGameOn(bool isGameOn)
     {
-        Debug.Log("Game On <<<<<<<<<<<<<<<<<<<<" + isGameOn);
         if (isGameOn)
         {
             resetScore();
@@ -137,5 +138,59 @@ public class GameManager : MonoBehaviour
     {
         return gameOn;
     }
-    
+
+    public void resetGame()
+    {
+        gameOn = false;
+        resetScore();
+        resetTimer();
+        gameOn = true;
+    }
+
+    public void RecalculateHighScore()
+    {
+        switch (timer)
+        {
+            case 30:
+                if (score > PlayerPrefs.GetInt("bestScore30s", 0))
+                {
+                    PlayerPrefs.SetInt("bestScore30s", score);
+                    audioManager.PlayNewHighscore();
+                }
+                break;
+                    
+            case 60:
+                if (score > PlayerPrefs.GetInt("bestScore60s", 0))
+                {
+                    PlayerPrefs.SetInt("bestScore60s", score);
+                    audioManager.PlayNewHighscore();
+                }
+                break;
+                    
+            case 120:
+                if (score > PlayerPrefs.GetInt("bestScore120s", 0))
+                {
+                    PlayerPrefs.SetInt("bestScore120s", score);
+                    audioManager.PlayNewHighscore();
+                }
+                break;
+                    
+            case 180:
+                if (score > PlayerPrefs.GetInt("bestScore180s", 0))
+                {
+                    PlayerPrefs.SetInt("bestScore180s", score);
+                    audioManager.PlayNewHighscore();
+                }
+                break;
+        }
+    }
+
+    public void ResetAllHighscores()
+    {
+        PlayerPrefs.SetInt("bestScore30s", 0);
+        PlayerPrefs.SetInt("bestScore60s", 0);
+        PlayerPrefs.SetInt("bestScore120s", 0);
+        PlayerPrefs.SetInt("bestScore180s", 0);
+        audioManager.PlayNewHighscore();
+    }
 }

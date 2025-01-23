@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 // A LED node emitting light based on start/stop signals from the previous node in the chain.
+
 public class LEDNode : MonoBehaviour
 {
     // Previous linked LED node.

@@ -13,13 +13,13 @@ public class ButtonManager : MonoBehaviour
     private AudioManager audioManager;
     private GameManager gameManager;
     private float time;
-    int cont = 0;
+    int cont = 1;
     
     void Start()
     {
         audioManager = AudioManager.Instance;
         gameManager = GameManager.Instance;
-        time = 60;
+        time = 30;
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class ButtonManager : MonoBehaviour
         if (gameManager.getGameOn())
         {
             Debug.Log("Restart game");
-            // TODO: Restart game (script)
+            gameManager.resetGame();
         }
         else
         {
@@ -60,7 +60,6 @@ public class ButtonManager : MonoBehaviour
         audioManager.PlayBasket();
         if (gameManager.getGameOn())
         {
-            Debug.Log("ve d'aqui");
             // Stop game
             Debug.Log("Joc parat");
             gameManager.resetTimer();
@@ -70,7 +69,8 @@ public class ButtonManager : MonoBehaviour
         {
             // Start Game
             Debug.Log("Joc iniciat");
-            gameManager.setGameOn(true);
+            //gameManager.setGameOn(true);
+            gameManager.resetGame();
         }
     }
 
@@ -80,7 +80,6 @@ public class ButtonManager : MonoBehaviour
         {
             case 0:
                 time = 30;
-                gameManager.setTimer(time);
                 cont++;
                 break;
             case 1:

@@ -23,12 +23,25 @@ public class NewBehaviourScript : MonoBehaviour
         {
             score.text = gm.getScore().ToString();
         }
-        else
+        
+        switch (gm.GetTimer())
         {
-            score.text = "0 P.";
+            case 30:
+                highscore.text = "30S HIGHSCORE: " + PlayerPrefs.GetInt("bestScore30s");
+                break;
+                    
+            case 60:
+                highscore.text = "60S HIGHSCORE: " + PlayerPrefs.GetInt("bestScore60s");
+                break;
+                    
+            case 120:
+                highscore.text = "120S HIGHSCORE: " + PlayerPrefs.GetInt("bestScore120s");
+                break;
+                    
+            case 180:
+                highscore.text = "180S HIGHSCORE: " + PlayerPrefs.GetInt("bestScore180s");
+                break;
         }
-
-        highscore.text = "HIGHSCORE : " + gm.getHighScore();
 
     }
 }
