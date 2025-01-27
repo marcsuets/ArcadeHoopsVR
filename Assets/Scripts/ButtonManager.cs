@@ -41,7 +41,8 @@ public class ButtonManager : MonoBehaviour
 
     public void BlueButtonClicked()
     {
-        audioManager.PlayBasket();
+        audioManager.PlayButton();
+        gameManager.ShowHighScoreScreen(false);
         if (gameManager.getGameOn())
         {
             Debug.Log("Restart game");
@@ -57,7 +58,8 @@ public class ButtonManager : MonoBehaviour
 
     public void RedButtonClicked()
     {
-        audioManager.PlayBasket();
+        audioManager.PlayButton();
+        gameManager.ShowHighScoreScreen(false);
         if (gameManager.getGameOn())
         {
             // Stop game

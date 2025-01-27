@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public double multiplier = 1;
     public int pointsPerBasket = 100;
     private int highScore = 0;
+    public GameObject canvasHighscore;
     
     // Timer settings
     private float timer = 30;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         audioManager = AudioManager.Instance;
         timeLeft = timer;
         timerIsRunning = false;
+        canvasHighscore.SetActive(false);
     }
 
     private void Update()   
@@ -154,6 +156,8 @@ public class GameManager : MonoBehaviour
             case 30:
                 if (score > PlayerPrefs.GetInt("bestScore30s", 0))
                 {
+                    ShowHighScoreScreen(true);
+                    Invoke("HideHighScoreScreen", 10f);
                     PlayerPrefs.SetInt("bestScore30s", score);
                     audioManager.PlayNewHighscore();
                 }
@@ -162,6 +166,8 @@ public class GameManager : MonoBehaviour
             case 60:
                 if (score > PlayerPrefs.GetInt("bestScore60s", 0))
                 {
+                    ShowHighScoreScreen(true);
+                    Invoke("HideHighScoreScreen", 10f);
                     PlayerPrefs.SetInt("bestScore60s", score);
                     audioManager.PlayNewHighscore();
                 }
@@ -170,6 +176,8 @@ public class GameManager : MonoBehaviour
             case 120:
                 if (score > PlayerPrefs.GetInt("bestScore120s", 0))
                 {
+                    ShowHighScoreScreen(true);
+                    Invoke("HideHighScoreScreen", 10f);
                     PlayerPrefs.SetInt("bestScore120s", score);
                     audioManager.PlayNewHighscore();
                 }
@@ -178,6 +186,8 @@ public class GameManager : MonoBehaviour
             case 180:
                 if (score > PlayerPrefs.GetInt("bestScore180s", 0))
                 {
+                    ShowHighScoreScreen(true);
+                    Invoke("HideHighScoreScreen", 10f);
                     PlayerPrefs.SetInt("bestScore180s", score);
                     audioManager.PlayNewHighscore();
                 }
@@ -192,5 +202,15 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("bestScore120s", 0);
         PlayerPrefs.SetInt("bestScore180s", 0);
         audioManager.PlayNewHighscore();
+    }
+
+    public void ShowHighScoreScreen(bool show)
+    {
+        canvasHighscore.SetActive(show);
+    }
+
+    public void HideHighScoreScreen()
+    {
+        canvasHighscore.SetActive(false);
     }
 }
